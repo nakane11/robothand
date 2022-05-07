@@ -7,7 +7,7 @@ from std_msgs.msg import Float32MultiArray
 class ServoClient:
     def __init__(self, min_angle, rate):
         self.min_angle = min_angle
-        self.array = np.array([0.0, 0.0, 0.0, 0.0])
+        self.array = np.array([90.0, 89.0, 87.0, 90.0])
         self.pub = rospy.Publisher("servo", Float32MultiArray, queue_size = 1)
         self.rate = rospy.Rate(rate)
 
