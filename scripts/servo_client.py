@@ -20,7 +20,8 @@ class ServoClient:
             msg = Float32MultiArray(data = segment_angle)
             self.pub.publish(msg)
             self.rate.sleep()
-        self.array = np.array(angle_list[-1])
+        if len(angle_list) > 1:
+            self.array = np.array(angle_list[-1])
 
     def interpolation(self, initial, target, div_num):
         ret = np.zeros((div_num, initial.size))

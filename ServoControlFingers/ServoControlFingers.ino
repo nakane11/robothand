@@ -17,7 +17,6 @@ ros::Publisher chatter("chatter", &str_msg);
 char hello[13] = "hello world!";
 
 Servo servo_array[4];
-
 void servo_cb( const std_msgs::Float32MultiArray& msg){
   chatter.publish( &str_msg );
   for (int i=0; i < sizeof(servo_array)/sizeof(Servo); i++){
