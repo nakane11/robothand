@@ -8,7 +8,7 @@ class ServoClient:
     def __init__(self, min_angle, rate):
         self.min_angle = min_angle
         self.array = np.array([90.0, 89.0, 87.0, 90.0])
-        self.pub = rospy.Publisher("servo", Float32MultiArray, queue_size = 1)
+        self.pub = rospy.Publisher("test", Float32MultiArray, queue_size = 1)
         self.rate = rospy.Rate(rate)
 
     def send_angle(self, target_angle):
@@ -20,7 +20,7 @@ class ServoClient:
             msg = Float32MultiArray(data = segment_angle)
             self.pub.publish(msg)
             self.rate.sleep()
-        self.array = angle_list[-1]
+        self.array = np.array(angle_list[-1])
 
     def interpolation(self, initial, target, div_num):
         ret = np.zeros((div_num, initial.size))
