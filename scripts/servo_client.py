@@ -7,7 +7,7 @@ from std_msgs.msg import Float32MultiArray
 class ServoClient:
     def __init__(self, min_angle, rate):
         self.min_angle = min_angle
-        self.array = np.array([90.0, 89.0, 87.0, 90.0])
+        self.array = np.array([108, 96, 83, 78, 180])
         self.pub = rospy.Publisher("test", Float32MultiArray, queue_size = 1)
         self.rate = rospy.Rate(rate)
 
@@ -29,4 +29,6 @@ class ServoClient:
             for j in range(div_num): 
                 ret[j][i] = math.ceil(initial[i]+(target[i]-initial[i])/div_num * (j+1))
         return ret.tolist()
+
+
 
